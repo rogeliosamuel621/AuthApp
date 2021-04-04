@@ -1,0 +1,27 @@
+.RegisterContainer-container {
+  display: grid;
+  grid-gap: 20px;
+  border-radius: 10px;
+  background-color: #252b43;
+  padding: 10px 20px;
+  margin: 25px 10px;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.75);
+}
+.RegisterForm-form {
+  display: grid;
+  grid-gap: 10px;
+}
+.RegisterForm-form input[type='submit'] {
+  margin-top: 10px;
+}
+@media screen and (min-width: 425px) {
+  .RegisterContainer-container {
+    margin: 25px 7%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .RegisterContainer-container {
+    margin: 25px 25%;
+  }
+}

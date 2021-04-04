@@ -1,0 +1,51 @@
+.Message-Container {
+  display: flex;
+  justify-content: center;
+}
+.ErrorMessage {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin: 0 10%;
+  /* top: 29px; */
+  top: -70px;
+  padding: 2px 10px 5px 10px;
+  border-radius: 5px;
+  background-color: #252b43;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.75);
+}
+.ErrorMessage p {
+  color: white;
+  text-align: center;
+  margin: 0;
+}
+
+.ShowMessage {
+  animation-name: showmessage;
+  animation-duration: 0.5s;
+}
+
+@keyframes showmessage {
+  from {
+    top: -70px;
+  }
+  to {
+    top: 29px;
+  }
+}
+
+.HideMessage {
+  animation-name: hidemessage;
+  animation-duration: 0.5s;
+}
+
+@keyframes hidemessage {
+  from {
+    top: 29px;
+  }
+  to {
+    top: -70px;
+  }
+}

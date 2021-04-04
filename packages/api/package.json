@@ -1,0 +1,47 @@
+{
+  "name": "authapp-api",
+  "version": "2.0.0",
+  "description": "An API to make authentication",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "MODE=prod node ./src/index.js",
+    "dev": "MODE=dev nodemon src/index.js",
+    "test:routes": "MODE=testing   jest ./routes/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rogeliosamuel621/Authentication-App-API.git"
+  },
+  "keywords": [
+    "API",
+    "Javascript",
+    "JWT"
+  ],
+  "author": "Rogelio Samuel <@rogeliosamuel21>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rogeliosamuel621/Authentication-App-API/issues"
+  },
+  "homepage": "https://github.com/rogeliosamuel621/Authentication-App-API#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^1.23.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.6.1",
+    "helmet": "^4.1.1",
+    "http-status-codes": "^2.1.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.7",
+    "multer": "^1.4.2",
+    "cli-color": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.15",
+    "jest": "^26.6.3",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.4",
+    "supertest": "^6.0.1"
+  }
+}

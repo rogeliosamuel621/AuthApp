@@ -1,0 +1,16 @@
+.Register-SocialMedia-icons {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+.Register-SocialMedia-icons a {
+  margin: 0 10px;
+}
+.FacebookButton {
+  cursor: pointer;
+  background-color: #4267b2;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+}

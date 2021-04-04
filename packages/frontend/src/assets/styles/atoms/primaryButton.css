@@ -1,0 +1,20 @@
+.PrimaryLink {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 10px 10px;
+  color: white;
+  background-color: #0779e4;
+  border-radius: 5px;
+}
+.Submit {
+  cursor: pointer;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
+  padding: 10px 10px;
+  margin: 0 35px;
+  color: white;
+  background-color: #0779e4;
+  border-radius: 5px;
+  border: none;
+}

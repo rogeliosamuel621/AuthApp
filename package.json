@@ -1,0 +1,28 @@
+{
+  "name": "authapp",
+  "version": "1.0.0",
+  "description": "A web application where you can authenticate with social media. Here is the API for this app.",
+  "main": "_",
+  "scripts": {
+    "build:app": "lerna run build",
+    "start:app": "lerna run start",
+    "dev:app": "lerna run dev",
+    "install:app": "npm install && lerna bootstrap"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rogeliosamuel621/AuthApp.git"
+  },
+  "author": "Rogelio Samuel <rogeliosamuel621>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rogeliosamuel621/AuthApp/issues"
+  },
+  "homepage": "https://github.com/rogeliosamuel621/AuthApp#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.1",
+    "husky": "^6.0.0",
+    "lerna": "^4.0.0"
+  }
+}

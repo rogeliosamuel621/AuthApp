@@ -1,0 +1,41 @@
+.EditForm-main {
+  display: grid;
+  grid-gap: 10px;
+  margin: 0 10px 10px 10px;
+}
+.EditForm-Container {
+  display: grid;
+  grid-gap: 20px;
+  background-color: #252b43;
+  border-radius: 5px;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.75);
+  padding: 10px;
+}
+.EditForm-Form-Container {
+  display: grid;
+  grid-gap: 15px;
+}
+.EditForm-submit {
+  display: flex;
+  margin-top: 10px;
+}
+.EditForm-submit input[type='submit'] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  width: 70px;
+  height: 30px;
+}
+@media screen and (min-width: 425px) {
+  .EditForm-main {
+    margin: 0 7%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .EditForm-main {
+    margin: 0 25%;
+  }
+}

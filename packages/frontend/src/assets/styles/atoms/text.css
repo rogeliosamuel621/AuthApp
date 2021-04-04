@@ -1,0 +1,24 @@
+.H1 {
+  color: white;
+  font-size: 24px;
+}
+.H2 {
+  color: white;
+  font-size: 18px;
+}
+.Subtitle {
+  color: #c4c4c4;
+  font-size: 14px;
+}
+.TextField {
+  color: white;
+  font-size: 14px;
+  max-width: 195px;
+  overflow: hidden;
+}
+.BlueText {
+  text-decoration: none;
+  color: #0779e4;
+  font-size: 14px;
+  cursor: pointer;
+}

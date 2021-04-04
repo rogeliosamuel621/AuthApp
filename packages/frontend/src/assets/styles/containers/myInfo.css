@@ -1,0 +1,39 @@
+.MyInfo-main-container h1 {
+  text-align: center;
+}
+.MyInfo-section-container {
+  display: grid;
+  grid-gap: 20px;
+  margin: 0 10px 20px 10px;
+  border-radius: 5px;
+  background-color: #252b43;
+  padding: 10px;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.75);
+}
+.MyInfo-Header {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+}
+.MyInfo-Header-text h2,
+.MyInfo-Header-text p {
+  margin: 0;
+}
+.MyInfo-Header-edit {
+  display: flex;
+  justify-content: flex-end;
+}
+.MyInfo-Header-edit a {
+  padding: 5px 20px;
+}
+@media screen and (min-width: 425px) {
+  .MyInfo-section-container {
+    margin: 0 7%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .MyInfo-section-container {
+    margin: 0 25%;
+  }
+}

@@ -1,0 +1,7 @@
+.Me-Container {
+  cursor: pointer;
+}
+.Me-ProfilePic {
+  border-radius: 10px;
+  object-fit: cover;
+}

@@ -1,0 +1,16 @@
+.FooterForm-Container {
+  display: grid;
+  justify-content: center;
+}
+.FooterForm-Container p {
+  text-align: center;
+  margin: 0;
+}
+.FooterForm-Question {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.FooterForm-Question a {
+  margin-left: 5px;
+}

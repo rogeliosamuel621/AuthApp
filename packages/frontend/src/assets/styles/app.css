@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans', sans-serif;
+  background-color: #252329;
+}
+
+.AnimationOut {
+  animation-duration: 1s;
+  animation-name: Out;
+}
+.AnimationIn {
+  animation-duration: 1s;
+  animation-name: In;
+}
+@keyframes Out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes In {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.Hide {
+  display: none !important;
+}
+
+.Show {
+  display: grid !important;
+}

@@ -1,0 +1,86 @@
+.Modal-Container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s;
+}
+.Modal-Content {
+  display: grid;
+  grid-gap: 25px;
+  background-color: #252b43;
+  border-radius: 5px;
+  width: 250px;
+  margin: 20% auto;
+  position: relative;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.8);
+}
+.Modal-Content-Close {
+  display: flex;
+  justify-content: flex-end;
+}
+.Modal-Content-Close a {
+  color: white;
+  text-decoration: none;
+  margin: 5px 10px;
+}
+.Modal-Content-Text h2,
+.Modal-Content-Text p {
+  text-align: center;
+  margin: 0;
+}
+.Modal-Content-image {
+  display: flex;
+  justify-content: center;
+}
+.Modal-Content-image img {
+  object-fit: cover;
+  border-radius: 5px;
+}
+.Modal-Content-Options {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.Modal-Content-Options button {
+  background-color: #d32626;
+  border: none;
+  color: white;
+  min-width: 100px;
+  border-radius: 5px;
+}
+.Modal-Content-input {
+  min-width: 100px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  width: 74px;
+  align-items: center;
+  height: 32px;
+  border-radius: 5px;
+  background-color: #0779e4;
+}
+.Modal-Content-input input[type='file'] {
+  opacity: 0;
+  width: 119px;
+  height: 32px;
+  position: absolute;
+}
+.Modal-Content-input p {
+  color: white;
+  font-size: 14px;
+  margin: 0;
+}
+#modal:target {
+  opacity: 1;
+  pointer-events: auto;
+}

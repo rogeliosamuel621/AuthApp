@@ -1,0 +1,8 @@
+.MainView-Content h1,
+.MainView-Content p {
+  text-align: center;
+}
+.MainView-PrimaryButton {
+  display: flex;
+  justify-content: center;
+}

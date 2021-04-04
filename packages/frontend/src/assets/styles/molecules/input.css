@@ -1,0 +1,22 @@
+.Input-Container {
+  display: grid;
+  grid-gap: 5px;
+}
+.Input-Container label {
+  color: white;
+  color: #c4c4c4;
+  font-size: 14px;
+}
+.Input-Content {
+  padding: 2px;
+  border: 1px solid white;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.Input-Content input {
+  width: 100%;
+  background: none;
+  border: none;
+  color: white;
+}

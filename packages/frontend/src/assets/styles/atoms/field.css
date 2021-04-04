@@ -1,0 +1,14 @@
+.DataField-Container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ImageField-Container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ImageField-profilePic img {
+  object-fit: cover;
+  border-radius: 5px;
+}
