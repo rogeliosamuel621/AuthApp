@@ -7,7 +7,10 @@
     "build:app": "lerna run build",
     "start:app": "lerna run start",
     "dev:app": "lerna run dev",
-    "install:app": "npm install && lerna bootstrap"
+    "install:app": "npm install && lerna bootstrap",
+    
+    "build": "cd packages/api && npm run build",
+    "start:api": "cd packages/api && npm run start"
   },
   "repository": {
     "type": "git",
