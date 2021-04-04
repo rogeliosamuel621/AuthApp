@@ -9,6 +9,7 @@
     "dev:app": "lerna run dev",
     "install:app": "npm install && lerna bootstrap",
 
+    "heroku-prebuild": "cd packages/api && npm install --dev",
     "build": "cd packages/api && npm run build",
     "start": "cd packages/api && npm run start"
   },
