@@ -1,33 +1,41 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
-const { MONGO_URI } = require('../../src/config/');
+const { MongoMemoryServer } = require('mongodb-memory-server');
 const User = require('../../src/db/models/users.models');
+const { FakeUser } = require('../utils/fakeUser');
 
-const DBConnection = async () => {
-  await mongoose.connect(MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-  });
-};
+class DbHandler {
+  constructor() {
+    this.mongod = new MongoMemoryServer();
+    this.uri = this.mongod.getUri();
+  }
 
-const DBClose = async (done) => {
-  await User.findOneAndDelete({ email: 'test@gmail.com' });
+  async dbConnection() {
+    await mongoose.connect(this.uri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+    });
+  }
 
-  await mongoose.connection.close();
-  done();
-};
+  async dbClose() {
+    await mongoose.connection.dropDatabase();
+    await mongoose.connection.close();
+    await this.mongod.stop();
+  }
 
-const DBCloseAndChangePassword = async (done) => {
-  const pass = await bcrypt.hash('123456', 10);
-  await User.findByIdAndUpdate('5ff0b8e44d2b480a76f3d103', { password: pass });
+  async clearDatabase() {
+    const collections = mongoose.connection.collections;
 
-  await mongoose.connection.close();
-  done();
-};
+    for (const key in collections) {
+      const collection = collections[key];
+      await collection.deleteMany({});
+    }
+  }
 
-module.exports = {
-  DBConnection,
-  DBClose,
-  DBCloseAndChangePassword,
-};
+  async registerUser() {
+    const mockUser = new FakeUser('adin@gmail.com', '123456');
+    await User.create(mockUser);
+  }
+}
+
+module.exports = new DbHandler();
