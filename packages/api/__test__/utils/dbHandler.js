@@ -2,40 +2,40 @@ const mongoose = require('mongoose');
 const { MongoMemoryServer } = require('mongodb-memory-server');
 const User = require('../../src/db/models/users.models');
 const { FakeUser } = require('../utils/fakeUser');
+const bcryptjs = require('bcryptjs');
 
-class DbHandler {
-  constructor() {
-    this.mongod = new MongoMemoryServer();
-    this.uri = this.mongod.getUri();
-  }
+mongod = new MongoMemoryServer();
 
-  async dbConnection() {
-    await mongoose.connect(this.uri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false,
-    });
-  }
+async function dbConnection(done) {
+  const uri = await mongod.getUri();
+  await mongoose.connect(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+  });
+  done();
+}
 
-  async dbClose() {
-    await mongoose.connection.dropDatabase();
-    await mongoose.connection.close();
-    await this.mongod.stop();
-  }
+async function dbClose(done) {
+  await mongoose.connection.dropDatabase();
+  await mongoose.connection.close();
+  await mongod.stop();
+  done();
+}
 
-  async clearDatabase() {
-    const collections = mongoose.connection.collections;
+async function clearDatabase() {
+  const collections = mongoose.connection.collections;
 
-    for (const key in collections) {
-      const collection = collections[key];
-      await collection.deleteMany({});
-    }
-  }
-
-  async registerUser() {
-    const mockUser = new FakeUser('adin@gmail.com', '123456');
-    await User.create(mockUser);
+  for (const key in collections) {
+    const collection = collections[key];
+    await collection.deleteMany({});
   }
 }
 
-module.exports = new DbHandler();
+async function registerUser() {
+  const mockUser = new FakeUser('adin@gmail.com', '123456');
+  mockUser.password = await bcryptjs.hash(mockUser.password, 10);
+  await User.create(mockUser);
+}
+
+module.exports = { dbConnection, dbClose, clearDatabase, registerUser };
