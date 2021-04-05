@@ -25,6 +25,7 @@
   "homepage": "https://github.com/rogeliosamuel621/Authentication-App-API#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "cli-color": "^2.0.0",
     "cloudinary": "^1.23.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
@@ -33,13 +34,13 @@
     "helmet": "^4.1.1",
     "http-status-codes": "^2.1.4",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.10.7",
-    "multer": "^1.4.2",
-    "cli-color": "^2.0.0"
+    "mongoose": "^5.12.3",
+    "multer": "^1.4.2"
   },
   "devDependencies": {
     "@types/jest": "^26.0.15",
     "jest": "^26.6.3",
+    "mongodb-memory-server": "^6.9.6",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.4",
     "supertest": "^6.0.1"
