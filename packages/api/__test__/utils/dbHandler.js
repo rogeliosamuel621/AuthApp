@@ -38,4 +38,25 @@ async function registerUser() {
   await User.create(mockUser);
 }
 
-module.exports = { dbConnection, dbClose, clearDatabase, registerUser };
+async function registerUserAndGetToken(
+  username = 'admin',
+  email = 'admin@gmail.com'
+) {
+  try {
+    const user = new User({
+      username: username,
+      email: email,
+      password: '123456',
+    });
+
+    await user.save();
+
+    const token = jwt.sign({ id: user._id }, 'jwt_secret');
+
+    return token;
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+module.exports = { dbConnection, dbClose, clearDatabase, registerUser, registerUserAndGetToken };
