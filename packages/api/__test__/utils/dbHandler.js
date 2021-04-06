@@ -3,6 +3,8 @@ const { MongoMemoryServer } = require('mongodb-memory-server');
 const User = require('../../src/db/models/users.models');
 const { FakeUser } = require('../utils/fakeUser');
 const bcryptjs = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const { JWT_SECRET } = require('../../src/config/');
 
 mongod = new MongoMemoryServer();
 
@@ -32,8 +34,8 @@ async function clearDatabase() {
   }
 }
 
-async function registerUser() {
-  const mockUser = new FakeUser('admin@gmail.com', '123456');
+async function registerUser(email = 'admin@gmail.com', pass = '123456') {
+  const mockUser = new FakeUser(email, pass);
   mockUser.password = await bcryptjs.hash(mockUser.password, 10);
   await User.create(mockUser);
 }
@@ -51,7 +53,7 @@ async function registerUserAndGetToken(
 
     await user.save();
 
-    const token = jwt.sign({ id: user._id }, 'jwt_secret');
+    const token = jwt.sign({ ID: user._id }, JWT_SECRET);
 
     return token;
   } catch (e) {
@@ -59,4 +61,10 @@ async function registerUserAndGetToken(
   }
 }
 
-module.exports = { dbConnection, dbClose, clearDatabase, registerUser, registerUserAndGetToken };
+module.exports = {
+  dbConnection,
+  dbClose,
+  clearDatabase,
+  registerUser,
+  registerUserAndGetToken,
+};

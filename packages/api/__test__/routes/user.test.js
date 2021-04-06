@@ -1,11 +1,19 @@
 const App = require('../../src/App');
 const req = require('supertest');
-const { DBClose, DBConnection, FakeUser, token } = require('../utils/');
+const { FakeUser, token } = require('../utils/');
+const {
+  dbConnection,
+  clearDatabase,
+  dbClose,
+  registerUserAndGetToken,
+  registerUser,
+} = require('../utils/dbHandler');
 const { API_KEY } = require('../../src/config/');
 
 describe('getProfile endpoint', () => {
-  beforeAll(DBConnection);
-  afterAll(DBClose);
+  beforeAll(dbConnection);
+  afterAll(dbClose);
+  beforeEach(clearDatabase);
 
   test('Should response 401, NO TOKEN PROVIDED', async (done) => {
     const res = await req(App).get('/api/profile').set('api_key', API_KEY);
@@ -15,6 +23,8 @@ describe('getProfile endpoint', () => {
   });
 
   test('Should response 200, EVERYTHING OK', async (done) => {
+    const token = await registerUserAndGetToken();
+
     const res = await req(App)
       .get('/api/profile')
       .set('api_key', API_KEY)
@@ -26,8 +36,9 @@ describe('getProfile endpoint', () => {
 });
 
 describe('Edit profile endpoint', () => {
-  beforeAll(DBConnection);
-  afterAll(DBClose);
+  beforeAll(dbConnection);
+  afterAll(dbClose);
+  beforeEach(clearDatabase);
 
   test('Should response 401, NO TOKEN PROVIDED', async (done) => {
     const res = await req(App)
@@ -44,6 +55,8 @@ describe('Edit profile endpoint', () => {
   });
 
   test('Should response 400, WRONG DATA SCHEMA', async (done) => {
+    const token = await registerUserAndGetToken();
+
     const res = await req(App)
       .put('/api/profile')
       .set('api_key', API_KEY)
@@ -59,6 +72,9 @@ describe('Edit profile endpoint', () => {
   });
 
   test('Should response 401, EMAIL ALREADY TAKEN', async (done) => {
+    const token = await registerUserAndGetToken();
+    await registerUser('admin2@gmail.com', '123456');
+
     const res = await req(App)
       .put('/api/profile')
       .set('api_key', API_KEY)
@@ -66,7 +82,7 @@ describe('Edit profile endpoint', () => {
       .send({
         name: 'test login',
         phone: '6677895463',
-        email: 'rogeliosamuel621@gmail.com',
+        email: 'admin2@gmail.com',
       });
 
     expect(res.status).toBe(401);
@@ -74,6 +90,8 @@ describe('Edit profile endpoint', () => {
   });
 
   test('Should response 200, EVERYTHING OK', async (done) => {
+    const token = await registerUserAndGetToken();
+
     const res = await req(App)
       .put('/api/profile')
       .set('api_key', API_KEY)
