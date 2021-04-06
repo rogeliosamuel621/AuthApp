@@ -4,9 +4,9 @@
   "description": "An API to make authentication",
   "main": "./src/index.js",
   "scripts": {
-    "start": "MODE=prod node ./src/index.js",
-    "dev": "MODE=dev nodemon src/index.js",
-    "test": "MODE=testing   jest ./routes/"
+    "start": "node ./src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "jest ./routes/"
   },
   "repository": {
     "type": "git",
