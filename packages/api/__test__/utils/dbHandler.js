@@ -48,7 +48,7 @@ async function registerUserAndGetToken(
     const user = new User({
       username: username,
       email: email,
-      password: '123456',
+      password: await bcryptjs.hash('123456', 10),
     });
 
     await user.save();

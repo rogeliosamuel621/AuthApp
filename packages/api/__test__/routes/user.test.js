@@ -1,6 +1,5 @@
 const App = require('../../src/App');
 const req = require('supertest');
-const { FakeUser, token } = require('../utils/');
 const {
   dbConnection,
   clearDatabase,
