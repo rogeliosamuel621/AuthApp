@@ -5,7 +5,7 @@ const {
   clearDatabase,
   dbClose,
   registerUserAndGetToken,
-} = require('../utils/dbHandler');
+} = require('../utils/');
 const { API_KEY } = require('../../src/config/');
 
 describe('Edit password controller endpoint', () => {

@@ -6,7 +6,7 @@ const {
   dbClose,
   registerUserAndGetToken,
   registerUser,
-} = require('../utils/dbHandler');
+} = require('../utils/');
 const { API_KEY } = require('../../src/config/');
 
 describe('getProfile endpoint', () => {

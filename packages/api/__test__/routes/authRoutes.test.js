@@ -1,12 +1,12 @@
 const app = require('../../src/App');
 const req = require('supertest');
-const { FakeUser } = require('../utils/');
 const {
   dbConnection,
   clearDatabase,
   dbClose,
   registerUser,
-} = require('../utils/dbHandler');
+  FakeUser,
+} = require('../utils/');
 const { API_KEY } = require('../../src/config/');
 
 describe('Register endpoint', () => {
