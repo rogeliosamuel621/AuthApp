@@ -6,7 +6,7 @@
   "scripts": {
     "start": "MODE=prod node ./src/index.js",
     "dev": "MODE=dev nodemon src/index.js",
-    "test:routes": "MODE=testing   jest ./routes/"
+    "test": "MODE=testing   jest ./routes/"
   },
   "repository": {
     "type": "git",

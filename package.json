@@ -4,10 +4,11 @@
   "description": "A web application where you can authenticate with social media. Here is the API for this app.",
   "main": "_",
   "scripts": {
+    "install:app": "npm install && lerna bootstrap",
     "build:app": "lerna run build",
     "start:app": "lerna run start",
     "dev:app": "lerna run dev",
-    "install:app": "npm install && lerna bootstrap",
+    "test:app": "lerna run test",
 
     "heroku-prebuild": "cd packages/api && npm install --dev",
     "build": "cd packages/api && npm run build",
@@ -28,5 +29,11 @@
     "@commitlint/config-conventional": "^12.1.1",
     "husky": "^6.0.0",
     "lerna": "^4.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-push": "npm run test:app"
+    }
   }
 }
