@@ -35,14 +35,14 @@ describe('Register endpoint', () => {
   test('Should response 400 SAME EMAIL', async (done) => {
     await registerUser();
 
-    const fakeUser = new FakeUser('admim@gmail.com', '123456');
+    const fakeUser = new FakeUser('admin@gmail.com', '123456');
 
     const res = await req(app)
       .post('/api/register')
       .set('api_key', API_KEY)
       .send(fakeUser);
 
-    expect(res.status).toBe(400);
+    expect(res.status).toBe(401);
     done();
   });
 

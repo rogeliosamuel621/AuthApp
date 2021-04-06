@@ -33,7 +33,7 @@ async function clearDatabase() {
 }
 
 async function registerUser() {
-  const mockUser = new FakeUser('adin@gmail.com', '123456');
+  const mockUser = new FakeUser('admin@gmail.com', '123456');
   mockUser.password = await bcryptjs.hash(mockUser.password, 10);
   await User.create(mockUser);
 }
