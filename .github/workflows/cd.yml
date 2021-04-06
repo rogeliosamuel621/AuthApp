@@ -35,4 +35,4 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: 'authapp-api'
           heroku_email: 'rogeliosamuel621@gmail.com'
-          # remote_branch: main # <- Include this
+          remote_branch: main # <- Include this
