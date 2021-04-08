@@ -10,7 +10,7 @@ import {
   HandleHttpExceptions,
   SuccessMessage,
 } from '../../utils/';
-import path from 'path';
+import path from 'path-browserify';
 
 const Modal = ({ setModal, token, setProfilePic, profilePic }) => {
   const [loading, setLoading] = useState(false);

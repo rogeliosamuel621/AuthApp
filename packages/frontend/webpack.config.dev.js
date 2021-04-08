@@ -1,10 +1,17 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { HotModuleReplacementPlugin } = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
+/** @type {import('webpack').Configuration} */
 module.exports = {
   entry: path.resolve(__dirname, 'src/index.jsx'),
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.[contenthash].js',
+    publicPath: '/',
+  },
   mode: 'development',
   module: {
     rules: [
@@ -18,7 +25,12 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          'css-loader',
+        ],
       },
       {
         test: /\.(jpg|jpeg|png|svg)$/,
@@ -27,16 +39,19 @@ module.exports = {
     ],
   },
   plugins: [
-    new HotModuleReplacementPlugin(),
+    new CleanWebpackPlugin(),
     new Dotenv(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public/index.html'),
     }),
+    new MiniCssExtractPlugin({
+      filename: 'styles.css',
+    }),
   ],
   devServer: {
     historyApiFallback: true,
-    contentBase: './',
+    contentBase: path.resolve(__dirname, 'dist'),
     hot: true,
-    port: 8080,
+    port: 9000,
   },
 };
