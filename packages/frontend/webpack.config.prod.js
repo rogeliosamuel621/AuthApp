@@ -4,11 +4,13 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require('dotenv-webpack');
 
+/** @type {import('webpack').Configuration} */
 module.exports = {
   entry: path.resolve(__dirname, 'src/index.jsx'),
   output: {
-    filename: 'bundle.[hash].js',
     path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.[contenthash].js',
+    publicPath: '/',
   },
   mode: 'production',
   module: {
@@ -31,11 +33,11 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpg|svg)$/i,
+        test: /\.(jpg|jpeg|png|svg)$/,
         loader: 'file-loader',
         options: {
-          outputPath: 'img',
-        },
+          outputPath: 'img'
+        } 
       },
     ],
   },
