@@ -5,7 +5,9 @@ const MockComponent = ({ Component }) => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={Component} />
+        <Route exact path="/">
+          {Component}
+        </Route>
       </Switch>
     </BrowserRouter>
   );
