@@ -8,23 +8,7 @@ describe('<LoginForm />', () => {
   beforeEach(() => {
     mountComponent(<LoginForm />);
   });
-  test('show password must have at least 6 characters msg', () => {
-    const emailInput = screen.getByPlaceholderText('Enter your email');
-    const passwordInput = screen.getByPlaceholderText('Enter your password');
-    const loginButton = screen.getAllByText('Login')[1];
-
-    fireEvent.change(emailInput, { target: { value: 'admin@gmail.com' } });
-    fireEvent.change(passwordInput, { target: { value: '123' } });
-
-    fireEvent.click(loginButton);
-
-    const errorMessage = screen.getByText('Password must have at least 6 characters')
-      .parentElement.parentElement;
-
-    expect(errorMessage).toBeInTheDocument();
-  });
-
-  test('hide password must have at least 6 characters msg', () => {
+  test('show & hide incorrect format password message', () => {
     const emailInput = screen.getByPlaceholderText('Enter your email');
     const passwordInput = screen.getByPlaceholderText('Enter your password');
     const loginButton = screen.getAllByText('Login')[1];
@@ -43,6 +27,7 @@ describe('<LoginForm />', () => {
 
     const hasHideMessageClass = errorMessage.className.includes('HideMessage');
 
+    expect(errorMessage).toBeInTheDocument();
     expect(hasShowMessageClass).toBe(true);
     expect(hasHideMessageClass).toBe(true);
   });
