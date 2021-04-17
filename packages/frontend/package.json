@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack serve --config webpack.config.dev.js --open",
     "build": "webpack --config webpack.config.prod.js",
-    "start": "http-server ./dist/ --proxy http://localhost:8080? -o"
+    "start": "http-server ./dist/ --proxy http://localhost:8080? -o",
+    "test": "jest ./components"
   },
   "repository": {
     "type": "git",
