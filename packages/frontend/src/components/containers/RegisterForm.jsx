@@ -5,11 +5,7 @@ import Axios from 'axios';
 import { API_URL } from '../../config';
 import { Input, TitleForm, FooterForm } from '../molecules/';
 import { Submit, Message, Loader } from '../atoms/';
-import {
-  ErrorHandler,
-  HandleHttpExceptions,
-  SuccessMessage,
-} from '../../utils/';
+import { ErrorHandler, HandleHttpExceptions, SuccessMessage } from '../../utils/';
 
 const RegisterContainer = () => {
   const [email, setEmail] = useState('');

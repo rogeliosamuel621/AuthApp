@@ -3,15 +3,24 @@ import '@testing-library/jest-dom/extend-expect';
 import { fireEvent, screen, waitFor } from '@testing-library/react';
 import { RegisterForm } from '../../src/components/containers/';
 import mountComponent from '../utils/mountComponent';
+import app from '../utils/mocks/app';
 
 describe('<RegisterForm />', () => {
+  let server;
+  beforeAll(() => {
+    server = app.listen(8000);
+  });
+  afterAll(() => {
+    server.close();
+  }, 50000);
+
   beforeEach(() => {
     mountComponent(<RegisterForm />);
   });
 
   test('show & hide incorrect format email message', async () => {
     require('dotenv').config();
-    console.log(process.env.API_KEY);
+
     const emailInput = screen.getByPlaceholderText('Enter your email');
     const passwordInput = screen.getByPlaceholderText('Enter your password');
     const registerButton = screen.getByText('Create an account');

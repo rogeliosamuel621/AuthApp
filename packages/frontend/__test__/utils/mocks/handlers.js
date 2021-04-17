@@ -1,7 +1,9 @@
-import { rest } from 'msw';
+import { Router } from 'express';
 
-export const handlers = [
-  rest.post('/register', (req, res, ctx) => {
-    return res(ctx.status(400));
-  }),
-];
+const router = Router();
+
+router.post('/register', (req, res) => {
+  return res.status(400).send();
+});
+
+export default router;
