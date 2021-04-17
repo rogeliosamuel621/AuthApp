@@ -15,7 +15,7 @@ describe('<Nav />', () => {
 
     fireEvent.click(button);
 
-    const dropDawnMenu = navComponent.getByText('My profile').parentElement;
+    const dropDawnMenu = navComponent.getByText('My profile')?.parentElement;
 
     expect(nullDropDawnMenu).toBe(undefined);
     expect(dropDawnMenu).toBeInTheDocument();
