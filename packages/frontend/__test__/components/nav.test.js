@@ -1,6 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { Nav } from '../../src/components/containers/';
 import MockComponent from '../utils/MockComponent';
 
@@ -10,12 +10,12 @@ describe('<Nav />', () => {
       <MockComponent Component={<Nav authenticate={true} profilePic="none" />} />
     );
 
-    const nullDropDawnMenu = navComponent.queryByText('My profile')?.parentElement;
-    const button = navComponent.getByAltText('arrow dawn image');
+    const nullDropDawnMenu = screen.queryByText('My profile')?.parentElement;
+    const button = screen.getByAltText('arrow dawn image');
 
     fireEvent.click(button);
 
-    const dropDawnMenu = navComponent.getByText('My profile')?.parentElement;
+    const dropDawnMenu = screen.getByText('My profile')?.parentElement;
 
     expect(nullDropDawnMenu).toBe(undefined);
     expect(dropDawnMenu).toBeInTheDocument();
@@ -26,12 +26,12 @@ describe('<Nav />', () => {
       <MockComponent Component={<Nav authenticate={true} profilePic="none" />} />
     );
 
-    const button = navComponent.getByAltText('arrow dawn image');
+    const button = screen.getByAltText('arrow dawn image');
 
     fireEvent.click(button); // open
     fireEvent.click(button); // close
 
-    const nullDropDawnMenu = navComponent.queryByText('My profile')?.parentElement;
+    const nullDropDawnMenu = screen.queryByText('My profile')?.parentElement;
 
     expect(nullDropDawnMenu).toBe(undefined);
   });
