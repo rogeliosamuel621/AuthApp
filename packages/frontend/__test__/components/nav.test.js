@@ -1,15 +1,15 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 import { Nav } from '../../src/components/containers/';
-import MockComponent from '../utils/MockComponent';
+import mountComponent from '../utils/mountComponent';
 
 describe('<Nav />', () => {
-  test('Show drop dawn menu', () => {
-    const navComponent = render(
-      <MockComponent Component={<Nav authenticate={true} profilePic="none" />} />
-    );
+  beforeEach(() => {
+    mountComponent(<Nav authenticate={true} profilePic="none" />);
+  });
 
+  test('Show drop dawn menu', () => {
     const nullDropDawnMenu = screen.queryByText('My profile')?.parentElement;
     const button = screen.getByAltText('arrow dawn image');
 
@@ -22,10 +22,6 @@ describe('<Nav />', () => {
   });
 
   test('Hide drop dawn menu', () => {
-    const navComponent = render(
-      <MockComponent Component={<Nav authenticate={true} profilePic="none" />} />
-    );
-
     const button = screen.getByAltText('arrow dawn image');
 
     fireEvent.click(button); // open

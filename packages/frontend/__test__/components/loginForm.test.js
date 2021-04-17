@@ -1,13 +1,14 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { fireEvent, render, screen } from '@testing-library/react';
-import MockComponent from '../utils/MockComponent';
+import { fireEvent, screen } from '@testing-library/react';
 import { LoginForm } from '../../src/components/containers/';
+import mountComponent from '../utils/mountComponent';
 
 describe('<LoginForm />', () => {
+  beforeEach(() => {
+    mountComponent(<LoginForm />);
+  });
   test('show password must have at least 6 characters msg', () => {
-    const loginForm = render(<MockComponent Component={<LoginForm />} />);
-
     const emailInput = screen.getByPlaceholderText('Enter your email');
     const passwordInput = screen.getByPlaceholderText('Enter your password');
     const loginButton = screen.getAllByText('Login')[1];
@@ -24,8 +25,6 @@ describe('<LoginForm />', () => {
   });
 
   test('hide password must have at least 6 characters msg', () => {
-    const loginForm = render(<MockComponent Component={<LoginForm />} />);
-
     const emailInput = screen.getByPlaceholderText('Enter your email');
     const passwordInput = screen.getByPlaceholderText('Enter your password');
     const loginButton = screen.getAllByText('Login')[1];
