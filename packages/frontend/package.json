@@ -60,8 +60,8 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js",
-      "\\.(jpg|jpeg|png|svg)$": "<rootDir>/__mocks__/fileMock.js"
+      "\\.(css|less)$": "<rootDir>/mocks/styleMock.js",
+      "\\.(jpg|jpeg|png|svg)$": "<rootDir>/mocks/fileMock.js"
     }
   }
 }
