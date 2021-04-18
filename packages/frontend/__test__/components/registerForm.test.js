@@ -3,7 +3,7 @@ import '@testing-library/jest-dom/extend-expect';
 import { fireEvent, screen, waitFor } from '@testing-library/react';
 import { RegisterForm } from '../../src/components/containers/';
 import mountComponent from '../utils/mountComponent';
-import app from '../utils/mocks/app';
+import app from '../utils/mocks/api/app';
 
 describe('<RegisterForm />', () => {
   jest.useFakeTimers(); // mock timeOut message atom component
