@@ -7,13 +7,11 @@ import { SocialIcons } from '../molecules';
 const FooterForm = ({ register, setMessage }) => {
   return (
     <div className="FooterForm-Container">
-      <Subtitle content="Or continue with these options" />
-      <SocialIcons setMessage={setMessage} />
+      {/* <Subtitle content="Or continue with these options" /> */}
+      {/* <SocialIcons setMessage={setMessage} /> */}
       <div className="FooterForm-Question">
         <Subtitle
-          content={
-            register ? 'Already have an account?' : `Don't you have an account?`
-          }
+          content={register ? 'Already have an account?' : `Don't you have an account?`}
         />
         <BlueText
           content={register ? 'Login' : 'Register'}

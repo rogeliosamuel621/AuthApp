@@ -21,7 +21,7 @@ const Me = ({ ProfilePic }) => {
       />
       <img
         className="Me-ArrowDawn"
-        src={`/${ArrowDawn}`}
+        src={ArrowDawn}
         alt="arrow dawn image"
         width="30"
         height="30"
