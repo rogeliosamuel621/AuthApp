@@ -6,13 +6,19 @@ import mountComponent from '../utils/mountComponent';
 import app from '../utils/mocks/app';
 
 describe('<RegisterForm />', () => {
+  jest.useFakeTimers(); // mock timeOut message atom component
+
   let server;
+
   beforeAll(() => {
     server = app.listen(8000);
   });
-  afterAll(() => {
-    server.close();
-  }, 50000);
+
+  afterAll((done) => {
+    server.close(() => {
+      done();
+    });
+  });
 
   beforeEach(() => {
     mountComponent(<RegisterForm />);
@@ -32,13 +38,14 @@ describe('<RegisterForm />', () => {
 
     let errorMessage;
     await waitFor(() => {
-      errorMessage = screen.getByText(
+      errorMessage = screen.queryByText(
         'You should fill the inputs with the correct format'
       ).parentElement;
     });
 
     const hasShowMessageClass = errorMessage.className.includes('ShowMessage');
 
+    screen.debug();
     fireEvent.click(errorMessage);
 
     const hasHideMessageClass = errorMessage.className.includes('HideMessage');
@@ -46,5 +53,7 @@ describe('<RegisterForm />', () => {
     expect(errorMessage).toBeInTheDocument();
     expect(hasShowMessageClass).toBe(true);
     expect(hasHideMessageClass).toBe(true);
+
+    screen.debug();
   });
 });
