@@ -1,5 +1,5 @@
 {
-  "name": "authapp",
+  "name": "authapp-frontend",
   "version": "2.0.0",
   "description": "A web application where you can auhtenticate with social medias. Here is the API for this app.",
   "main": "src/index.jsx",
