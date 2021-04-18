@@ -9,7 +9,7 @@
     "start:app": "lerna run start",
     "dev:app": "lerna run dev",
     "test:app": "lerna run test",
-
+    "prepare": "husky install",
     "heroku-prebuild": "cd packages/api && npm install --dev",
     "build": "cd packages/api && npm run build",
     "start": "cd packages/api && npm run start"
@@ -29,11 +29,5 @@
     "@commitlint/config-conventional": "^12.1.1",
     "husky": "^6.0.0",
     "lerna": "^4.0.0"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-push": "npm run test:app"
-    }
   }
 }

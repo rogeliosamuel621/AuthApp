@@ -13,9 +13,7 @@ const Message = ({ message, error }) => {
     <div className="Message-Container">
       <div
         style={
-          error
-            ? { borderTop: '5px solid #d32626' }
-            : { borderTop: '5px solid #79d70f' }
+          error ? { borderTop: '5px solid #d32626' } : { borderTop: '5px solid #79d70f' }
         }
         className="ErrorMessage"
         id="errorMessage"
